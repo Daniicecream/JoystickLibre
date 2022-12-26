@@ -1,17 +1,7 @@
-/*const settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://valorant-weapons.p.rapidapi.com/weapon/" + nombre,
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "1c0b9e32f3msh86c5829ce1a0d62p165a76jsn14cdcea87344",
-        "x-rapidapi-host": "valorant-weapons.p.rapidapi.com"
-    }
-};
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});*/
-
+/***
+ * This API service its outdated by the moment, 
+ * so the entire purpouse of this section its deprecated
+ *  */ 
 $( document ).ready(function(){
     
     var nombre;
@@ -26,9 +16,12 @@ $( document ).ready(function(){
 
     $('#btn-buscar-arma').click(function (event) {
         event.preventDefault();
-    
         $.ajax({
-            url: 'https://valorant-weapons.p.rapidapi.com/weapon/' + nombre + '/?rapidapi-key=1c0b9e32f3msh86c5829ce1a0d62p165a76jsn14cdcea87344',
+            url: 'https://valorant-weapons.p.rapidapi.com/weapon/' + nombre,
+            headers: {
+                "X-RapidAPI-Key": "be88124879mshde67f771d20035cp16ee21jsn939344985bc5",
+                "X-RapidAPI-Host": "valorant-weapons.p.rapidapi.com"
+            },
             data: {
                 format: 'json'
             },
@@ -49,6 +42,7 @@ $( document ).ready(function(){
                 var $dispersion = $('<img class=img-arma src="'+data.spread+'.png" alt="Imagen que muestra el patron de disperción del arma">');
     
                 $("#info").empty();     // para limpiar el contedor antes de desplegar
+
                 $('#info')
                     .append($nom_arma)
                     .append($coste_arma)
