@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Joystick Libre!: {% block title %}{% endblock title %} </title>
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+        <!-- Googlefont -->
+
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> <!-- hoja de estilos de normalizacion -->
+
+        <link rel="stylesheet" type="text/CSS" href="{% static 'css/estilos.css' %}"> <!-- hoja de estilos -->
+
+        <link rel="shortcut icon" href="{% static 'img/shortcut.png' %}" type="image/x-icon">
+
+    </head>
+
+    <body>
+        <header class="site-header inicio">
+            <div class="contenedor contenido-header">
+                <div class="barra">
+                    <a id = "logo" href="{% url 'home'%}">
+                        <img src="{% static 'img/logomin.png' %}" alt="logo de joystick libre">
+                    </a>
+                    <nav class="navegacion">
+                        <a href="{% url 'nosotros' %}">Nosotros</a>
+                        <a href="{% url 'reseñas' %}">Reseñas</a>
+                        <a href="{% url 'opiniones' %}">Opiniones</a>
+                        <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                        <a href="{% url 'armas' %}">Armas</a>
+                        <a href="{% url 'contacto' %}">Contactanos</a>
+                        {% if user.is_authenticated %}
+                            <a href="#">Usuario: {{user.username}}</a>
+                            <a href="{% url 'logout' %}" class="boton boton boton-rojo">Cerrar Sesión</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="boton boton-verde">Iniciar Sesión</a>
+                            <a href="{% url 'registrar' %}" class="boton boton-azul">Registrarse</a>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+            <!--contenedor-->
+        </header>
+
+        {% block content %} 
+        
+        {% endblock content %}
+
+
+        <footer class="site-footer seccion">
+            <div class="contenedor contenedor-footer">
+                <nav class="navegacion">
+                    <a href="{% url 'nosotros' %}">Nosotros</a>
+                    <a href="{% url 'reseñas' %}">Reseñas</a>
+                    <a href="{% url 'opiniones' %}">Opiniones</a>
+                    <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                    <a href="{% url 'armas' %}">Armas</a>
+                    <a href="{% url 'contacto' %}">Contactanos</a>
+                </nav>
+                <p class="copyright">Joystick Libre 2021 - Todos los Derechos Reservados &copy;</p>
+            </div>
+            <div class="contenedor datos-footer">
+                <div class="dato-footer">
+                    <h4>Teléfono</h4>
+                    <p>(2) 2459 6030)</p>
+                </div>
+                <div class="dato-footer">
+                    <h4>Email</h4>
+                    <p>joysticklibre_2021@gmail.com</p>
+                </div>
+                <div class="dato-footer">
+                    <h4>Ubicación</h4>
+                    <p>Av. Ejército Libertador 120, Santiago, Región Metropolitana</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>

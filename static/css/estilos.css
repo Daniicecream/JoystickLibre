@@ -1,0 +1,547 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /** reset para rems **/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+/** Globales = lo que se ocupara más de una vez **/
+img{
+    max-width: 100%; /**Ajusta la imagen en su totalidad a la pantalla, pero sin que supere a esta**/
+ }
+ .contenedor{
+     max-width: 120rem; /* centrar el contenido de todo el sitio*/
+     margin: 0 auto; /* arriba derecha = abajo izquierda */
+ }
+ 
+ h1{ 
+     font-size: 3.8rem;
+ }
+ 
+ h2{
+     font-size: 3.4rem;
+ }
+ 
+ h3{
+     font-size: 3rem;
+ }
+ 
+ h4{
+     font-size: 2.6rem;
+ }
+
+ /** Utilidades **/
+.seccion{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300{
+    font-weight: 300; /*clase que define el ancho de la fuente a 300 */
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+.contenido-centrado{
+    max-width: 800px;
+}
+
+.space-bw{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.space-bw .boton-azul{
+    width: calc(50% - 0.5rem);
+}
+
+.space-bw .boton-rojo{
+    width: calc(50% - 0.5rem);
+}
+
+.d-block{
+    display: block!important;
+}
+
+/**Botones **/
+.boton{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 3rem; /* se aplica al href gracias al display: inline-block, de lo contrario esta linea no afectaria al href */ 
+    display: inline-block;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover{
+    cursor: pointer; /* Cambia el cursor cuando se situa en un boton */
+}
+
+.boton-verde{
+    background-color: #71B100;
+    margin-top: 0;
+}
+
+.boton-verde:hover{
+    background-color: #ff56e3;
+    color: #ffa2f0;
+}
+
+.boton-azul{
+    background-color: #1c6fb3;
+    margin-top: 0;
+}
+
+.boton-rojo{
+    background-color: #b11551;
+    margin-top: 0;
+}
+
+/* Header */
+.site-header{
+    background-color: #333333;
+    padding: 0 0 3rem 0;
+}
+
+.site-header.inicio{
+    background-image: url(../img/header.jpg);
+    background-position: center center; /* posiciona la imagen desde el centro */
+    background-size: cover; /* ocupa todo el espacio disponible, manteniendo las proporciones */
+    height: 60vh; /*mide el tamaño de la pantalla; 1vh = 1% de la altura del viewport */
+    min-height: 30rem;  /* permite asignar una altura minima a la imagen, 
+    para evitar que vh muestre una imagen demasiado pequeña*/
+}
+
+.contenedor.contenido-header{
+    max-width: unset;
+}
+
+.contenido-header{
+    height: 100%;
+    display: flex ;
+    flex-direction: column; /* cambia la direccion del flex hacia vertical */
+    justify-content: space-between;
+}
+
+.contenido-header h1{
+    color: #71B100;
+}
+
+.contenido-header p{
+    color: #ff56e3;
+}
+
+.barra{
+    display: flex;  /** metodo estandarizado para posicionar elementos**/
+    background-color: #333333;
+    padding: 0 3rem;
+    justify-content: space-between; /** permite alinear horizontalmente, reparte el espacio de enmedio entre los elementos **/
+    align-items: center; /** permite alinear los elementos verticalmente **/
+    height: 5rem;
+}
+
+.barra a:first-of-type {
+    padding-top: 14rem;
+}
+
+/* Navegacion */
+.navegacion a {
+    color:#7fff00;
+    text-decoration: none; /** elimina el subrayado que crea por defecto los enlaces **/
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    font-family: sans-serif;
+}
+
+.navegacion a:hover{ /** pseudo selector mas comun, cuando el puntero esta encima **/
+    color: #ff56e3;
+}
+
+.navegacion a:last-of-type{ /* pseudo-selector que setea parametros al ultimo elemento de la clase en cuestion*/
+    margin-right: 0rem;
+}
+
+/* Seccion Reseñas */
+.seccion-reseñas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.seccion-reseñas.contenedor.seccion{
+    padding: 0 3rem;
+}
+
+.entrada-reseña{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.entrada-reseña:last-of-type{
+    margin-bottom: 0;
+}
+
+.entrada-reseña .imagen{
+    flex-basis: 40%;
+}
+
+.entrada-reseña .texto-entrada{
+    flex-basis: calc(60% - 3rem);
+}
+
+.texto-entrada a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.texto-entrada h4{
+    margin: 0;
+    line-height: 1.4;
+}
+.texto-entrada h4:hover{
+    color: #ff56e3;
+}
+
+.texto-entrada h4::after{
+    content: '';
+    display:block;
+    width: 15rem;
+    height: .5rem;
+    background-color: #71B100;
+    margin-top: 1rem;
+}
+
+.texto-entrada span{
+    color: #ff56e3;
+}
+
+.texto-entrada p{
+    text-align: justify;
+}
+
+.ver-todas{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Banner Lanzamientos */
+.imagen-lanzamientos{
+    background-image: url(../img/contenedor-lanz.jpeg);
+    height: 40rem;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    padding-bottom: 3rem;
+    align-items: flex-end;
+}
+
+.contenido-lanzamientos{
+    flex: 1; /* factor de crecimiento, divide el total de los pixeles en la cantidad n de elementos para asignar espacio por igual a todos */ 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenido-lanzamientos p{
+    font-size: 1.8rem;
+}
+
+/** Footer **/
+.site-footer{
+    background-color: #333333;
+    margin: 0; /**quitamos el margen que agrega la clase 'seccion' **/
+    align-items: center;
+}
+
+.contenedor-footer{
+    padding: 2rem 0rem; /**arriba abajo izquierda derecha**/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright{
+    margin: 0;
+    color:#71B100; 
+}
+
+.datos-footer{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+}
+
+.dato-footer h4{
+    margin: 0;
+    text-align: center;
+    color: #71B100;
+    font-size: 1.2rem;
+    line-height: .5rem;
+}
+.dato-footer p{
+    text-align: center;
+    color: #71B100;
+    font-size:1.2rem;
+    line-height: .5rem;
+
+}
+.dato-footer h4::after{
+    content: '';
+    display:block;
+    width: 20rem;
+    height: .2rem;
+    background-color: #ff56e3;
+    margin-top: 1rem;
+    margin-left: auto; /* centra la barra decorativa */
+    margin-right: auto; /* centra la barra decorativa */
+}
+
+/** PAGINAS INTERNAS **/
+/**Nosotros**/
+.fondo-nosotros{
+    background-image: url(../img/fondo-nosotros.jpg);
+    background-position: center center; /* posiciona la imagen desde el centro */
+    background-size: cover;
+}
+.contenedor.contenedor-nosotros{
+    background-color: #1f1f1f;
+}
+.contenedor-nosotros{
+    height: 100%;
+    display: flex ;
+    flex-direction: column; /* cambia la direccion del flex hacia vertical */
+    padding:0 2rem;
+}
+
+.banner-nosotros{
+    background-image: url(../img/banner-nosotros.jpg);
+    background-position: center center; /* posiciona la imagen desde el centro */
+    background-size: cover; /* ocupa todo el espacio disponible, manteniendo las proporciones */
+    height: 60vh; /*mide el tamaño de la pantalla; 1vh = 1% de la altura del viewport */
+    min-height: 30rem;  /* permite asignar una altura minima a la imagen, 
+    para evitar que vh muestre una imagen demasiado pequeña*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.banner-nosotros h2{
+    color:#71B100;
+    padding-right: 2rem;
+}
+.descripcion-nosotros{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.block-desc-nosotros{
+    flex-basis: calc(33.3% - 2rem); /* calcula el 33.3% del total y le resta 10px */
+    text-align: center; /* alinea texto al centro */
+}
+.block-desc-nosotros p{
+    color: #71B100;
+    text-align: justify;
+}
+.block-desc-nosotros img{
+    width: 100%;
+    height: auto;
+    padding: 3rem;
+}
+
+.contenedor-avatares{
+    display: flex;
+    justify-content: space-between;
+}
+.avatar{
+    flex-basis: calc(33.3% - 1rem); /* calcula el 33.3% del total y le resta 10px */
+    text-align: center; /* alinea texto al centro */
+}
+.avatar img{
+    height: 55%;
+    width: 45%;
+}
+
+.avatar h4{
+    color:#71B100;
+    font-size: 2rem;
+}
+
+.avatar h4::before{
+    content: '';
+    display:block;
+    width: 20rem;
+    height: .2rem;
+    background-color: #ff56e3;
+    margin: 1rem 0;
+    margin-left: auto; /* centra la barra decorativa */
+    margin-right: auto; /* centra la barra decorativa */
+}
+
+/**Reseñas**/
+
+/**Opiniones**/
+
+/**Contacto**/
+.contacto-bg{
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario{
+    background-color: #ffffff;
+    margin: -10rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo_label{
+    flex: 0 0 10rem; /*factor de crecimiento 0
+                    tampoco se va a hacer más pequeño
+                    el tamaño base sera de 9rem*/
+}
+
+.campo_input{
+    flex: 1; /*indica que tome todo el espacio disponible*/
+    border: 1 solid #333333;
+}
+
+.campo_input--textarea{
+    height: 20rem; 
+}
+span.error{
+    color: #bd164e;
+    font-size: 1.2rem;
+}
+
+/** Armas **/
+.armas-bg{
+    background-image: url(../img/valorant2.jpg);
+    height: 50rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.arsenal{
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    margin: -10rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+.arsenal ul{
+    list-style: none;
+}
+.caja-info{
+    display: flex;
+}
+.selector{
+    display: flex;
+    justify-content: center;
+}
+.label_armas{
+    flex: 0 0 15rem; /*factor de crecimiento 0
+                    tampoco se va a hacer más pequeño
+                    el tamaño base sera de 9rem*/
+}
+.info-titulo{
+    color: #bd164e;
+    font-size: 3.4rem;
+}
+.img-arma{
+    height: 30rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.barra-buscar {
+    display: flex;
+    justify-content: center;
+}
+#btn-buscar-arma{
+    width: 90%;
+    background-color: #1ec7b0;
+}
+#btn-buscar-arma:hover{
+    background-color: #bd164e;
+    color: #4ddbc4;
+}
+
+/** Anuncios **/
+.contenedor-anuncios{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.anuncio{
+    /** 
+    flex-grow: 0; Si tiene espacio disponible hara crecer el contenido
+    flex-shrink: 0; Evita que los elementos se encojan
+    flex-basis: calc(33.3% - 1rem); Establece la base
+    **/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 calc(33.3% - 1rem); /** Grow Shrink Basis **/
+    /** 
+    border-width: 0.1rem;
+    border-style: solid;
+    border-color: gray; 
+    **/
+    border: 1px solid grey; /** width style color **/
+    background: rgb(236, 236, 236);
+    margin-bottom: 2rem;
+}
+
+.img-anuncio img{
+    height: 25rem;
+    width: max-content;
+}
+
+.contenido-anuncio{
+    padding: 2rem;
+}
+
+.targeta-medidas{
+    height: 20rem; /**Al asignarle una medida a la "targeta" esta no se estirara, y evitara que se desalineen los items**/
+    margin-bottom: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contenido-anuncio h3{
+    margin: 0;
+    line-height: 2.5rem;
+}
+
+.fecha{
+    color: limegreen;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.ver-todas{
+    display: flex;
+    justify-content: flex-end;
+}

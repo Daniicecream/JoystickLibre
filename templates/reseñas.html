@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick Libre!: Reseñas</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Googlefont -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> <!-- hoja de estilos de normalizacion -->
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'css/estilos.css' %}"> <!-- hoja de estilos -->
+
+    <link rel="shortcut icon" href="{% static 'img/shortcut.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+    <header class="site-header inicio">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logomin.png' %}" alt="logo de joystick libre">
+                </a>
+                <nav class="navegacion">
+                    <a href="{% url 'nosotros' %}">Nosotros</a>
+                    <a href="{% url 'reseñas' %}">Reseñas</a>
+                    <a href="{% url 'opiniones' %}">Opiniones</a>
+                    <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                    <a href="{% url 'armas' %}">Armas</a>
+                    <a href="{% url 'contacto' %}">Contactanos</a>
+                    {% if user.is_authenticated %}
+                    <a href="#">Usuario: {{user.username}}</a>
+                    <a href="{% url 'logout' %}" class="boton boton boton-rojo">Cerrar Sesión</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="boton boton-verde">Iniciar Sesión</a>
+                    <a href="{% url 'registrar' %}" class="boton boton-azul">Registrarse</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+        <!--contenedor-->
+    </header>
+
+    <section class="seccion-reseñas contenedor seccion">
+        <h2 class="fw-300 centrar-texto">Reseñas sobre videojuegos</h2>
+        <p>Bienvenido viajero, aquí podrás encontrar reseñas de los juegos a ESTRENAR y asi podrás saber si los juegos
+            te gustan o llaman tu atención.
+            Baja y encontraras las reseñas viajero
+        </p>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/biomutant.jpg' %}" alt="img de reseña">
+            </div>
+            <div class="texto-entrada">
+                <a href="{% url 'entrada' %}">
+                    <h4>Biomutant</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@AlexEricsson19</span> </p>
+                <p>"Biomutant es un título de rol y acción de mundo abierto, con especial énfasis en la exploración y el
+                    combate cuerpo a cuerpo. Llevándonos a un universo de ciencia ficción lejano, plagado de planetas
+                    selváticos y de climas extremos, en Biomutant encarnaremos a un animal capaz de mutar, añadir
+                    habilidades y viajar por distintos escenarios con los más variados vehículos, que irán desde mechas
+                    a globos y jetpacks. Colorido y especial, Biomutant es un juego de THQ Nordic y Experiment 101."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/party-animals.jpg' %}" alt="img de reseña">
+            </div>
+            <div class="texto-entrada">
+                <a href="{% url 'entrada' %}">
+                    <h4>Party Animals</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@SebastianFarias05</span> </p>
+                <p>"Es un género de acción, casual e Indie, fue desarrollado por Recreate Games y es un juego
+                    independiente que va saliendo a flote con buen impacto de gameplay. “¡Lucha contra tus amigos como
+                    cachorros, gatitos y otras criaturas peludas en PARTY ANIMALS! Juega con tus amigos tanto en línea
+                    como fuera de línea."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/pokemonsnap.jpg' %}" alt="img de reseña">
+            </div>
+            <div class="texto-entrada">
+                <a href="{% url 'entrada' %}">
+                    <h4>New Pokemon Snap</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@DanielVasquez</span> </p>
+                <p>"Busca y fotografía Pokémon en su ambiente natural dentro del juego New Pokémon Snap™, disponible
+                    exclusivamente para la consola Nintendo Switch™. Toma fotos desde el Neo-One a medida que investigas
+                    y encuentras coloridos Pokémon. Podrás incluso descubrir comportamientos y expresiones que nunca
+                    antes habías visto; es posible que los veas patrullando su territorio, jugando o merodeando en
+                    lugares recónditos."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/resident-evil.jpg' %}" alt="img de reseña">
+            </div>
+            <div class="texto-entrada">
+                <a href="{% url 'entrada' %}">
+                    <h4>Resident Evil Village</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@SebastianFarias05</span> </p>
+                <p>"Llega la nueva generación de "survival horror" con Resident Evil Village,la octava entrega de su
+                    historia principal. Disfruta de sus gráficos ultrarrealistas (generados con el RE Engine) y lucha
+                    por sobrevivir frente a los peligros que acechan en cada esquina.
+                    Situado unos años más tarde de los terroríficos acontecimientos del laureado Resident Evil 7
+                    biohazard, esta nueva historia empieza con Ethan Winters y su mujer Mia viviendo en paz en un nuevo
+                    lugar, libres de las pesadillas del pasado. Pero, en el mismo momento en que empiezan a construir su
+                    nueva vida juntos,
+                    la tragedia se cierne de nuevo sobre ellos. Cuando su casa se ve atacada por Chris Redfield, el
+                    capitán de la BSAA, Ethan debe adentrarse en los infiernos una vez más para traer de vuelta a su
+                    hija secuestrada."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña centrar-item">
+            <div class="imagen">
+                <img src="{% static 'img/hood.jpg' %}" alt="img de reseña">
+            </div>
+            <div class="texto-entrada">
+                <a href="{% url 'entrada' %}">
+                    <h4>Counter Strike: Global Offensive</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@AlexEricsson19</span> </p>
+                <p>"Supera a las bandas rivales en un mundo medieval y violento de intensos asaltos multijugador JcJcE.
+                    Muévete con sigilo y roba tesoros sin que te vean o subyuga al resto en un combate brutal y
+                    descarnado; solo los mejores escaparán con una fortuna fruto de su esfuerzo.
+                    Mientras se enfrentan a un despiadado estado de desgobierno, rebeldes y granujas de todos los
+                    rincones pelean por reclamar su lugar entre las leyendas. Para ganar influencia entre la gente
+                    oprimida, las bandas rivales compiten en intrépidos asaltos para darle a los ricos donde más les
+                    duele. Héroe del pueblo o forajido que solo busca oro... Solo los mejores escaparán con una fortuna
+                    fruto de su esfuerzo."
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'reseñas' %}">Reseñas</a>
+                <a href="{% url 'opiniones' %}">Opiniones</a>
+                <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                <a href="{% url 'armas' %}">Armas</a>
+                <a href="{% url 'contacto' %}">Contactanos</a>
+            </nav>
+            <p class="copyright">Joystick Libre 2021 - Todos los Derechos Reservados &copy;</p>
+        </div>
+
+        <div class="contenedor datos-footer">
+            <div class="dato-footer">
+                <h4>Teléfono</h4>
+                <p>(2) 2459 6030)</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Email</h4>
+                <p>joysticklibre_2021@gmail.com</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Ubicación</h4>
+                <p>Av. Ejército Libertador 120, Santiago, Región Metropolitana</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

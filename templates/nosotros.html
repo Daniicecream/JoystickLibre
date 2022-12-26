@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick Libre!: Nosotros</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+        <!-- Googlefont -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> <!-- hoja de estilos de normalizacion -->
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'css/estilos.css' %}"> <!-- hoja de estilos -->
+
+    <link rel="shortcut icon" href="{% static 'img/shortcut.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="#"></a>
+                <nav class="navegacion">
+                    <a href="{% url 'nosotros' %}">Nosotros</a>
+                    <a href="{% url 'reseñas' %}">Reseñas</a>
+                    <a href="{% url 'opiniones' %}">Opiniones</a>
+                    <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                    <a href="{% url 'armas' %}">Armas</a>
+                    <a href="{% url 'contacto' %}">Contactanos</a>
+                    {% if user.is_authenticated %}
+                        <a href="#">Usuario: {{user.username}}</a>
+                        <a href="{% url 'logout' %}" class="boton boton boton-rojo">Cerrar Sesión</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="boton boton-verde">Iniciar Sesión</a>
+                        <a href="{% url 'registrar' %}" class="boton boton-azul">Registrarse</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+        <!--contenedor-->
+    </header>
+
+    <section class="fondo-nosotros">
+        <div class="contenedor contenedor-nosotros">
+            <div class="banner-nosotros">
+                <h2 class="fw-300">...¿Quienes somos?</h2>
+            </div>
+            <div class="seccion descripcion-nosotros">
+                <div class="block-desc-nosotros">
+                    <p>Somos un grupo de estudiantes de Ingeniería en Informática en DuocUC. Hasta la fecha muestro
+                        grupo se compone de cuatro personas. Creamos este espacio con el proposito de crear una
+                        comunidad activa con la cual compartamos intereses en común, ya sea noticias, reseñas u
+                        opiniones sobre videojuegos, tecnologia y quien sabe... quizá en un futuro hasta de anime.
+                        No pretendemos engañar a nadie... somos unos frikis de tomo y lomo.
+                    </p>
+                </div>
+                <div class="block-desc-nosotros">
+                    <img src="{% static 'img/logomin.png' %}" alt="">
+                </div>
+                <div class="block-desc-nosotros">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In atque, velit facilis culpa, id ad
+                        fuga necessitatibus architecto ratione provident, quos tenetur dolores ullam et impedit officia
+                        itaque? A, hic.
+                        Quos veritatis fugiat eius culpa aliquid, ullam quaerat non inventore perspiciatis illum
+                        laboriosam sint quae debitis sunt corrupti ad distinctio soluta facere? Aliquid et alias non
+                        doloribus facilis eaque dicta.
+                        Ea perspiciatis inventore ad neque, debitis assumenda hic sint ex placeat consequuntur libero
+                        officia quod a, aspernatur similique! Excepturi consequatur nobis assumenda fugit cum expedita
+                        eos minus placeat! Recusandae, voluptatem.</p>
+                </div>
+            </div>
+            <div class="seccion contenedor-avatares">
+                <div class="avatar">
+
+                    <img src="{% static 'img/seba-avatar.jpg' %}" alt="">
+
+                    <h4 class="fw-300">Sebastian Farias</h4>
+                </div>
+                <div class="avatar">
+
+                    <img src="{% static 'img/daniel-avatar.png' %}" alt="">
+
+                    <h4 class="fw-300">Daniel Vásquez</h4>
+                </div>
+                <div class="avatar">
+
+                    <img src="{% static 'img/avatar-alex.jpg' %}" alt="">
+
+                    <h4 class="fw-300">Alex Pedreros</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'reseñas' %}">Reseñas</a>
+                <a href="{% url 'opiniones' %}">Opiniones</a>
+                <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                <a href="{% url 'armas' %}">Armas</a>
+                <a href="{% url 'contacto' %}">Contactanos</a>    
+            </nav>
+            <p class="copyright">Joystick Libre 2021 - Todos los Derechos Reservados &copy;</p>
+        </div>
+
+        <div class="contenedor datos-footer">
+            <div class="dato-footer">
+                <h4>Teléfono</h4>
+                <p>(2) 2459 6030)</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Email</h4>
+                <p>joysticklibre_2021@gmail.com</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Ubicación</h4>
+                <p>Av. Ejército Libertador 120, Santiago, Región Metropolitana</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

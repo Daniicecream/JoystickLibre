@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Inicie Sesion {% endblock title %}
+
+{% block content %}
+    <div id="registro" class="contenedor seccion">
+        <h2 class="fw-300 centrar-texto">Iniciar Sesión</h2><br>
+        <div class="contacto-bg"></div>
+        <form class ="formulario" method="POST" id="login-form">
+            {% csrf_token %}
+            <div class="campo">
+                <label class ="campo_label" for="username">Nombre de Usuario</label><br>
+                <input name="username" class="campo_input" type="text"/>
+                <div class="boton-rojo">{{ form.errors.username }}</div>
+            </div>
+
+            <div class="campo">
+                <label class ="campo_label" for="password">Contraseña</label><br>
+                <input name="password" class="campo_input" type="password"/>
+                <div class="boton-rojo">{{ form.errors.password }}</div>
+            </div>
+            {% if form.non_field_errors %}
+                <div class="campo">
+                    <div class="boton-rojo">Login incorrecto!</div>
+                </div>  
+            {% endif %}
+            
+            {{form.non_field_errors}}
+
+            <div class="campo">
+                <input class="boton boton-verde" type="submit" value="Enviar"/>
+            </div>
+        </form>
+    </div>
+{% endblock %}

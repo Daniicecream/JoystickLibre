@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick Libre!: Opiniones</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Googlefont -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> <!-- hoja de estilos de normalizacion -->
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'css/estilos.css' %}"> <!-- hoja de estilos -->
+
+    <link rel="shortcut icon" href="{% static 'img/shortcut.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+    <header class="site-header inicio">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logomin.png' %}" alt="logo de joystick libre">
+                </a>
+                <nav class="navegacion">
+                    <a href="{% url 'nosotros' %}">Nosotros</a>
+                    <a href="{% url 'reseñas' %}">Reseñas</a>
+                    <a href="{% url 'opiniones' %}">Opiniones</a>
+                    <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                    <a href="{% url 'armas' %}">Armas</a>
+                    <a href="{% url 'contacto' %}">Contactanos</a>
+                    {% if user.is_authenticated %}
+                    <a href="#">Usuario: {{user.username}}</a>
+                    <a href="{% url 'logout' %}" class="boton boton boton-rojo">Cerrar Sesión</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="boton boton-verde">Iniciar Sesión</a>
+                    <a href="{% url 'registrar' %}" class="boton boton-azul">Registrarse</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+        <!--contenedor-->
+    </header>
+
+    <section class="seccion-reseñas contenedor seccion">
+        <h2 class="fw-300 centrar-texto">Opiniones sobre videojuegos</h2>
+        <p>Bienvenido al sitio de opiniones.En este lugar encontraras opiniones de los desarrolladores de la pagina
+            sobre algunos videojuegos,
+            esto se ira actualizando con el tiempo, cada vez se iran agregando mas opiniones con mucha diversidad de
+            juegos.
+        </p>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/minecraft.jpg' %}" alt="img de opinion">
+            </div>
+            <div class="texto-entrada">
+                <a href="#">
+                    <h4>Minecraft</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@AlexEricsson19</span> </p>
+                <p>"Te mentiría si te dijese que no he tocado Minecraft en los diez años que el juego de Mojang lleva
+                    conquistando el mundo. Tras darle alguna oportunidad fuera de casa llegué a pensar que aquello no
+                    era
+                    para
+                    mí. El mismo juego que era capaz de despertar la imaginación y creatividad de millones de personas
+                    no me
+                    dijo nada.
+                    ¿El motivo? Por regla general acababa estrellándome con el mismo muro: el aburrimiento. Su entorno
+                    voxelado
+                    no me llamaba y prefería dedicar mis horas perdidas a cualquier otra cosas antes de rascar cubos y
+                    hacer
+                    agujeros. Hoy veo Minecraft con otros ojos. Con los mismos de aquellos que una década antes ya se
+                    habían
+                    rendido a su inmensidad."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/valheim.jpg' %}" alt="img de opinion">
+            </div>
+            <div class="texto-entrada">
+                <a href="#">
+                    <h4>Valheim</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@SebastianFarias05</span> </p>
+                <p>"Si habéis estado pendientes de la actualidad del videojuego los últimos días seguro que habéis oído
+                    hablar
+                    de Valheim. Desarrollado por el estudio sueco Iron Gate, este juego de supervivencia en mundo
+                    abierto
+                    llegaba el pasado 2 de febrero a Steam en forma de Acceso Anticipado y sólo le han bastado unos días
+                    para
+                    catapultarse a lo más alto con cifras récord: dos millones de copias vendidas en apenas dos semanas
+                    y
+                    juego
+                    con mayor número de jugadores simultáneos. Y parece que su éxito no ha hecho más que comenzar."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/monsterhunter.jpg' %}" alt="img de opinion">
+            </div>
+            <div class="texto-entrada">
+                <a href="#">
+                    <h4>Monster Hunter: World</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@DanielVasquez</span> </p>
+                <p>"Un Monster Hunter en todos sus aspectos, no ha perdido nada al paso a la nueva generación, lo tiene
+                    todo
+                    y
+                    más, porque ahora el cooperativo es genial, no solo puedes jugar con los amigos de manera
+                    facilísima,
+                    sino
+                    que si quieres jugar con otros jugadores, puedes buscar o crear partidas para que se una la gente, y
+                    si
+                    no
+                    fuera poco, si no quieres esperar a que se unan otros jugadores, puedes usar la bengala SOS para
+                    llamar
+                    a
+                    otros jugadores para que te ayuden a cazar algún jefe que se te resista."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña">
+            <div class="imagen">
+                <img src="{% static 'img/valorant.jpg' %}" alt="img de opinion">
+            </div>
+            <div class="texto-entrada">
+                <a href="#">
+                    <h4>Valorant</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@SebastianFarias05</span> </p>
+                <p>"Si el único juego en tu historial es LoL, está claro que tienes el listón altísimo, y no siempre vas
+                    a
+                    estar a
+                    la altura de las expectativas con tus productos posteriores. ¿Tiene Valorant lo que hay que tener?
+                    En
+                    realidad
+                    sí que lo tiene: una jugabilidad a prueba de balas y un público realmente dedicado. Lo que resta es
+                    ver
+                    si puede
+                    plantarle cara a CSGO, su principal competidor a largo plazo, y si se mantendrá fresco con el paso
+                    del
+                    tiempo."
+                </p>
+            </div>
+        </article>
+
+        <article class="entrada-reseña centrar-item">
+            <div class="imagen">
+                <img src="{% static 'img/csgo.jpg' %}" alt="img de opinion">
+            </div>
+            <div class="texto-entrada">
+                <a href="#">
+                    <h4>Counter Strike: Global Offensive</h4>
+                </a>
+                <p>Escrito el: <span>20/01/2021</span> por: <span>@AlexEricsson19</span> </p>
+                <p>"Con el tiempo, cuando pruebas cosas nuevas te acabas dando cuenta de que es un truñaco bien grande
+                    con
+                    mecanicas estancadas en el pasado.
+
+                    El sistema de aim si bien tiene habilidad involucrada se basa demasiado en la suerte para un juego
+                    supuestamente competitivo, en el que además no hay ninguna variedad, todos los mapas son estilo LoL
+                    y la
+                    mayor parte de la habilidad involucrada consiste en hacer cosas que existen en todos los FPS, como
+                    saber
+                    las
+                    posiciones más comunes donde la gente se pone.
+
+                    Aparte de eso está lleno de cheaters y para jugar en buenos servidores no puedes ir al MM normal
+                    porque
+                    en
+                    realidad a Valve nunca le importo el juego."
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'reseñas' %}">Reseñas</a>
+                <a href="{% url 'opiniones' %}">Opiniones</a>
+                <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                <a href="{% url 'armas' %}">Armas</a>
+                <a href="{% url 'contacto' %}">Contactanos</a>
+            </nav>
+            <p class="copyright">Joystick Libre 2021 - Todos los Derechos Reservados &copy;</p>
+        </div>
+
+        <div class="contenedor datos-footer">
+            <div class="dato-footer">
+                <h4>Teléfono</h4>
+                <p>(2) 2459 6030)</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Email</h4>
+                <p>joysticklibre_2021@gmail.com</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Ubicación</h4>
+                <p>Av. Ejército Libertador 120, Santiago, Región Metropolitana</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

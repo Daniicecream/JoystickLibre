@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Usuarios Registrados {% endblock title %}
+
+{% block content %}
+    <div class="contenedor seccion">
+        <h2 class="fw-300 centrar-texto">Lista de usuarios registrados</h2>
+        <hr>
+        {% if not object_list %}
+            <h1>Lo sentimos, no se encontraron usuarios registrados :( </h1>
+            <br><br><br><br><br><br><br><br>
+        {% else %}
+            <div class="contenedor-anuncios">
+                {% for user in object_list %}
+                    <div class="anuncio">
+                        <div class="contenido-anuncio">
+                            <div class="targeta-medidas">
+                                <h3>Nombre: {{ user.username }}</</h3>
+                                <p class="fecha">Email: {{ user.email }}</</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div> 
+        {% endif %}
+    </div>                    
+{% endblock content %}

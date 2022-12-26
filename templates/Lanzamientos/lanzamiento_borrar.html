@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Borrar {% endblock title %}
+
+
+{% block content %}
+<div class="contenedor seccion">
+
+<form method="POST">{% csrf_token %}
+
+    <div>
+    <h3>¿Desea eliminar el registro de {{object.nombre}}?</h3><br>
+    <button class = "boton boton-rojo" type="submit">Si</button>
+    <a class= "boton boton-azul" href="{% url 'lanzamientos_list' %}">Cancelar</a> 
+    </div>
+
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+{% endblock content %}

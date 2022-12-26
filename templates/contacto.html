@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick Libre!: Contactanos</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Googlefont -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}"> <!-- hoja de estilos de normalizacion -->
+
+    <link rel="stylesheet" type="text/CSS" href="{% static 'css/estilos.css' %}"> <!-- hoja de estilos -->
+
+    <link rel="shortcut icon" href="{% static 'img/shortcut.png' %}" type="image/x-icon">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"
+        integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"
+        integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA=="
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header class="site-header inicio">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logomin.png' %}" alt="logo de joystick libre">
+                </a>
+                <nav class="navegacion">
+                    <a href="{% url 'nosotros' %}">Nosotros</a>
+                    <a href="{% url 'reseñas' %}">Reseñas</a>
+                    <a href="{% url 'opiniones' %}">Opiniones</a>
+                    <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                    <a href="{% url 'armas' %}">Armas</a>
+                    <a href="{% url 'contacto' %}">Contactanos</a>
+                    {% if user.is_authenticated %}
+                    <a href="#">Usuario: {{user.username}}</a>
+                    <a href="{% url 'logout' %}" class="boton boton boton-rojo">Cerrar Sesión</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="boton boton-verde">Iniciar Sesión</a>
+                    <a href="{% url 'registrar' %}" class="boton boton-azul">Registrarse</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+        <!--contenedor-->
+    </header>
+
+    <main class="contenedor seccion contenido-contacto">
+        <h1 class="centrar-texto fw-300">Contacto</h1>
+
+        <div class="contacto-bg"></div>
+        <form class="formulario" id="contact-form">
+            <div class="campo">
+                <label class="campo_label" for="nick">Nick:</label>
+                <input class="campo_input" type="text" placeholder="Tu nick..." id="nick" name="nick">
+            </div>
+            <div class="campo">
+                <label class="campo_label" for="nombre">Nombre:</label>
+                <input class="campo_input" type="text" placeholder="Nombre completo..." id="nombre" name="nombre">
+            </div>
+            <div class="campo">
+                <label class="campo_label" for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo">
+                    <option selected>-- Seleccionar --</option>
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label class="campo_label" for="nacimiento">Fecha nacimiento:</label>
+                <input type="date" min="1920-01-01" max="2020-12-31" id="nacimiento" name="nacimiento">
+            </div>
+            <div class="campo">
+                <label class="campo_label" for="email">Email:</label>
+                <input class="campo_input" type="email" placeholder="joysticklibre@gmail.com" id="email" name="email">
+            </div>
+            <div class="campo">
+                <label class="campo_label" for="mensaje">Mensaje:</label>
+                <textarea class="campo_input campo_input--textarea" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje acá..."></textarea>
+            </div>
+            <div class="campo">
+                <input type="checkbox" name="TerminosCondiciones">
+                <label for="TerminosCondiciones">He leido y acepto los terminos y condiciones del sitio web</label>
+            </div>
+            <div class="campo">
+                <input type="submit" value="Enviar" class="boton boton-verde">
+            </div>
+        </form>
+
+    </main>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="{% url 'nosotros' %}">Nosotros</a>
+                <a href="{% url 'reseñas' %}">Reseñas</a>
+                <a href="{% url 'opiniones' %}">Opiniones</a>
+                <a href="{% url 'lanzamientos_list' %}">Lanzamientos</a>
+                <a href="{% url 'armas' %}">Armas</a>
+                <a href="{% url 'contacto' %}">Contactanos</a>
+            </nav>
+            <p class="copyright">Joystick Libre 2021 - Todos los Derechos Reservados &copy;</p>
+        </div>
+
+        <div class="contenedor datos-footer">
+            <div class="dato-footer">
+                <h4>Teléfono</h4>
+                <p>(2) 2459 6030)</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Email</h4>
+                <p>joysticklibre_2021@gmail.com</p>
+            </div>
+            <div class="dato-footer">
+                <h4>Ubicación</h4>
+                <p>Av. Ejército Libertador 120, Santiago, Región Metropolitana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/validacion_contacto.js' %}"></script> <!-- Javascript de Validaciones -->
+    <script src="{% static 'js/mensajes_es.js' %}"></script> <!-- Javascript de Validaciones -->
+</body>
+
+</html>

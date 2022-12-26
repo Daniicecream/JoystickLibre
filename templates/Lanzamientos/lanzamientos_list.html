@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Lanzamientos {% endblock title %}
+
+{% block content %}
+    <div class="contenedor seccion">
+        <h2 class="fw-300 centrar-texto">¡ Revisa los Próximos Lanzamientos !</h2>
+        <hr>
+        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            <a class="boton boton-azul" href="{% url 'lanzamiento_form' %}">Agregar</a>
+        {% endif %}
+        {% endif %}
+
+        {% if not object_list %}
+            <h1>Lo sentimos, no hay registros de próximos lanzamientos :( </h1>
+            <br><br><br><br><br><br><br><br>
+        {% else %}
+            <div class="contenedor-anuncios">
+                {% for lanzamiento in object_list %}
+                    <div class="anuncio">
+                        <div class="img-anuncio">
+                            <img src="../../static/img/{{ lanzamiento.foto }}" alt="imagen videojuego">
+                        </div>
+                        <div class="contenido-anuncio">
+                            <div class="targeta-medidas">
+                                <h3>{{ lanzamiento.nombre }}</h3>
+                                <p>{{ lanzamiento.plataforma }}</p>
+                                <p class="fecha">{{ lanzamiento.fecha }}</p>
+                                <p>{{ lanzamiento.descripcion }}</p>
+                            </div>
+                            <a href="#" class="boton boton-verde d-block">Ver Videojuego</a>
+                            {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <div class="space-bw">
+                                    <a href="{% url 'lanzamientos_update' lanzamiento.id %}" class="boton boton-azul">Editar</a>
+                                    <a href="{% url 'lanzamientos_delete' lanzamiento.id %}" class="boton boton-rojo">Eliminar</a>
+                                </div>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div> 
+        {% endif %}
+    </div>                    
+{% endblock content %}

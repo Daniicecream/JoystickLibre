@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Registrar Usuario {% endblock title %}
+
+{% block content %}
+    <div class="contenedor seccion">
+            <h2 class="fw-300 centrar-texto">Registrar un Usuario</h2>
+            <div class="contacto-bg"></div>
+            <form class="formulario" id="usuario-form" method="POST" enctype= "multipart/form-data" >{% csrf_token %}
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                
+                {% for field in form %}
+                <div class="campo">
+                    <label class="campo_label" for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+                    <div class="campo_input">{{ field }}</div>
+                    <div class="boton-rojo">{{ field.errors }}</div>
+                </div>
+                {% endfor %}
+                
+                <input type="submit" value="Grabar" class="boton boton-verde">
+            
+            </form>
+    </div>
+{% endblock content %}
