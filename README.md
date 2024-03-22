@@ -5,6 +5,3 @@ It simulate a videogames news site, this project helped us to learn about:
 - HTML, CSS, JavaScript
 - User management module
 - Develop an  API with a basic CRUD implementation related to upcoming videogames  
-
-Check deployment at: 
-https://Daniicecream.pythonanywhere.com/
